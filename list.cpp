@@ -1,22 +1,16 @@
-#include <iostream>
-using namespace std;
-//node structure
-struct node {
-    int data;
-    struct node *next;
-};
+#include "list.h"
 
 int main() {
-    // 100 elements
-    struct node *head, *tail, *tmp;
-    head = NULL;
 
-    for (int i = 1; i <= 100; i++)
+    for (int i = 1; i <= elements; i++)
     {
         //tmp pointer
         //allocate memory for node
-        tmp = new node;
-        tmp->data = i;
+        tmp = new NODE;
+        tmp->key = i;
+        cout << "Input Data: " << endl;
+        cin >> tmp->data;
+        tmp->key = i;
         tmp->next = NULL;
         //create head if it doesnt exist
         if (head == NULL) {
@@ -29,9 +23,10 @@ int main() {
             tail = tmp;          
         }
     }
+    cout << "linked list results" << endl;
     //print linked list
     while (head != NULL){
-        cout << head->data << endl;
+        cout << "Key: " << head->key <<  " Data: " << head->data << endl;
         head = head->next;
     }
     exit(0);
