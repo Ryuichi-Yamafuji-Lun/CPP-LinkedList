@@ -1,33 +1,47 @@
+#include <iostream>
 #include "list.h"
 
-int main() {
+void createLinked(int elements);
+void printList();
+int main()
+{
+    int elements;
+    cout << "Number of elements in the linked list: ";
+    cin >> elements;
+    cout << std::endl;
+    createLinked(elements);
+    cout << "Linked List Results:  \n";
+    printList();
+    return 0;
+}
 
-    for (int i = 1; i <= elements; i++)
+void createLinked(int elements)
+{
+    for(int i = 0; i < elements; i++)
     {
-        //tmp pointer
-        //allocate memory for node
-        tmp = new NODE;
-        tmp->key = i;
-        cout << "Input Data: " << endl;
-        cin >> tmp->data;
-        tmp->key = i;
-        tmp->next = NULL;
-        //create head if it doesnt exist
-        if (head == NULL) {
-            head = tmp;
-            tail = tmp;
+        temp = new NODE;
+        temp->key = i;
+        cout << "Data for element: " << i << std::endl;
+        cin >> temp->data;
+        if(head == NULL)
+        {
+            head = temp;
+            tail = temp;
         }
-        //connect and create new node
-        else {
-            tail->next = tmp;
-            tail = tmp;          
+        else 
+        {
+            tail->next = temp;
+            tail = temp;
         }
     }
-    cout << "linked list results" << endl;
-    //print linked list
-    while (head != NULL){
-        cout << "Key: " << head->key <<  " Data: " << head->data << endl;
-        head = head->next;
+}
+
+void printList()
+{
+    temp = head;
+    while(temp != NULL)
+    {
+        cout << "Key: " << temp->key << " Data: " << temp->data << "\n";
+        temp = temp->next;
     }
-    exit(0);
 }

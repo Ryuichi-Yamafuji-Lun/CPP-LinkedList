@@ -1,14 +1,19 @@
-#include <iostream>
-#define elements 10
-using namespace std;
+#ifndef LIST
+#define LIST
 
-typedef struct _NODE 
+#include <iostream>
+using std::cout;
+using std::cin;
+
+typedef struct _NODE
 {
     int key;
     int data;
+
     struct _NODE *next;
 }NODE;
 
 NODE *head = NULL;
 NODE *tail;
-NODE *tmp;
+NODE *temp;
+#endif
